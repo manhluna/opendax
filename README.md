@@ -30,6 +30,10 @@ SSH using root user, then create new user for the application
 ```bash
 useradd -g users -s `which bash` -m app
 ```
+Back to root user to set pass for app user
+```bash
+sudo passwd app
+```
 
 #### 2.2 Install Docker and docker compose
 
@@ -55,6 +59,8 @@ git clone https://github.com/openware/opendax.git
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
 cd opendax
+rvm autolibs read-only
+rvm install "ruby-2.6.5"
 rvm install .
 ```
 
