@@ -25,30 +25,14 @@ A VM from any cloud provider like DigitalOcean, Vultr, GCP, AWS as well as any d
 
 ### 2. Prepare the VM
 
-#### 2.1 Create Unix user
-SSH using root user, then create new user for the application
-```bash
-useradd -g users -s `which bash` -m app
-```
-Back to root user to set pass for app user
-```bash
-sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-sudo passwd app
-```
-
-#### 2.2 Install Docker and docker compose
+#### 2.1 Install Docker and docker compose
 
 We highly recommend using docker and compose from docker.com install guide instead of the system provided package, which would most likely be deprecated.
 
 Docker follow instruction here: [docker](https://docs.docker.com/install/)
 Docker compose follow steps: [docker compose](https://docs.docker.com/compose/install/)
 
-#### 2.3 Install ruby in user app
-
-##### 2.3.1 Change user using
-```bash
-su - app
-```
+#### 2.3 Install ruby
 
 ##### 2.3.2 Clone OpenDAX
 ```bash
@@ -60,13 +44,10 @@ git clone https://github.com/openware/opendax.git
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable
 cd opendax
-rvm autolibs read-only
 rvm install "ruby-2.6.5"
-rvm install .
 ```
 
 ### 3. Bundle install dependencies
-nio4r install with sudo
 
 ```bash
 gem install bundler
