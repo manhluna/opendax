@@ -32,6 +32,7 @@ useradd -g users -s `which bash` -m app
 ```
 Back to root user to set pass for app user
 ```bash
+sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 sudo passwd app
 ```
 
@@ -65,8 +66,10 @@ rvm install .
 ```
 
 ### 3. Bundle install dependencies
+nio4r install with sudo
 
 ```bash
+gem install bundler
 bundle install
 rake -T # To see if ruby and lib works
 ```
